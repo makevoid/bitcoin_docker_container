@@ -24,7 +24,24 @@ make
 make install
 
 
+echo "
+rpcuser=bitcoin
+rpcpassword=EDITME
+server=1
+daemon=1
+rpcthreads=1000
+rpctimeout=300
+txindex=1
+addrindex=1
+" > /root/.bitcoin/bitcoin.conf
+
+# starts bitcoind
+bitcoind
+
+# manually: check if there are connections
+bitcoin-cli getinfo
+
 # docker commit <container_id> counterparty_no_chain
 # more infos: http://counterparty.io/docs/bitcoin_core/
 # docker push makevoid/counterparty_no_chain
-```sh
+```
