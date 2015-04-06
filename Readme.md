@@ -41,6 +41,8 @@ bitcoind
 # manually: check if there are connections
 bitcoin-cli getinfo
 
+# TODO: setup bitcoind in init.d
+
 # docker commit <container_id> counterparty_no_chain
 # more infos: http://counterparty.io/docs/bitcoin_core/
 # docker push makevoid/counterparty_no_chain
