@@ -1,3 +1,83 @@
+# Bitcoin machine setup
+
+go to bitcoin.org
+
+wget the linux-64 version
+
+enter the bin dir
+
+run 
+
+    ./bitcoind
+
+
+create and edit bitcoin.conf
+
+    vim ~/bitcoin/bitcoin.conf
+
+
+enter a screen session (optional but useful, your shell/terminal session will be persisted even if the ssh connection closes)
+
+    screen
+    
+then press enter
+
+
+
+launch bitcoind
+
+    ./bitcoind -prune=4000
+
+
+the command should output nothing, open another ssh session then type
+
+
+    tail -f ~/.bitcoin/debug.log
+
+it should output some commands
+
+
+
+then do a docker commit when you downloaded the chain 
+
+put the docker/vm hash and the md5 hash of the image file maybe in the blockchain using some services like <eternitywall.it>, <cryptograffiti.info> etc...
+
+reuse everytime!
+
+save, commit, hash, share, repeat...
+
+enjoy your bitcoin+blockchain secure distributed installation
+
+
+----
+
+Further use:
+
+enter bitcoin-cli
+
+    bitcoin-cli balance
+    
+    
+    bitcoin-cli accounts
+
+    bitcoin-cli getaccountaddress ""
+    
+    bitcoin-cli dumpprivkey
+    
+    bitcoin-cli sendtoaddress "1address...", 0.0001
+    
+    
+
+
+---
+More and more use:
+
+Use an HTTP library and some JSON to communicate to bitcoind server using the JSON RPC or websocket / zmq API.
+
+Much power.
+
+---
+
 # Counterparty blockchian machine setup
 
 ```sh
@@ -14,7 +94,14 @@ apt-get install build-essential vim wget libtool autotools-dev pkg-config autoco
 # get patched bitcoin
 mkdir ~/tmp
 cd ~/tmp
+
+# for bitcoin (recommended)
+wget 
+
+# or for bitcoin w/ counterparty patch (old v)
 wget https://github.com/btcdrak/bitcoin/releases/download/addrindex-0.10.0/bitcoin-addrindex-0.10.0.tar.gz
+
+
 tar xvf bitcoin-addrindex-0.10.0.tar.gz
 
 # configure
